@@ -1,0 +1,131 @@
+@import "../variables.scss";
+@import "./buttonVariables.scss";
+/******************************************************
+* 色调
+*******************************************************/
+
+
+/******************************************************
+* 样式
+*******************************************************/
+/*
+* 主按钮
+*/
+button.ben-btn-primary {
+  @extend %btnPrimary;
+  &.button-hover{
+    @extend %btnPrimaryHover;
+  }
+  &[disabled]:not([type]){
+    @extend %btnPrimaryDisabled;
+  }
+  &[disabled][type=default]{
+    @extend %btnPrimaryDisabled;
+  }
+  &[loading]:not([type]){
+    @extend %btnPrimaryLoading;
+  }
+}
+
+/*
+* 次按钮
+*/
+button.ben-btn-default {
+  @extend %btnDefault;
+  &.button-hover{
+    @extend %btnDefaultHover;
+  }
+  &[disabled]:not([type]){
+    @extend %btnDefaultDisabled;
+  }
+  &[disabled][type=default]{
+    @extend %btnDefaultDisabled;
+  }
+  &[loading]:not([type]){
+    @extend %btnDefaultLoading;
+  }
+  &.ben-btn-sub{
+    @extend %btnDefaultSub;
+    &.button-hover{
+      @extend %btnDefaultSubHover;
+    }
+    &[loading]:not([type]){
+      @extend %btnDefaultSubLoading;
+    }
+  }
+}
+/*
+* 刷新红按钮
+*/
+button.ben-btn-refresh {
+  @extend %btnRefresh;
+  &.ben-btn-middle{
+    @extend %btnRefreshMiddle;
+  }
+  &.ben-btn-small{
+    @extend %btnRefreshSmall;
+  }
+}
+
+/*
+* 微信支付按钮
+*/
+button.ben-btn-wechat {
+  @extend %btnWechat;
+  &.button-hover{
+    @extend %btnWechatHover;
+  }
+  &[disabled]:not([type]){
+    @extend %btnWechatDisabled;
+  }
+  &[disabled][type=default]{
+    @extend %btnWechatDisabled;
+  }
+  &[loading]:not([type]){
+    @extend %btnWechatLoading;
+  }
+}
+
+/*
+* 确认按钮
+*/
+button.ben-btn-confirm {
+  @extend %btnConfirm;
+  &.button-hover{
+    @extend %btnConfirmHover;
+  }
+  &[disabled]:not([type]){
+    @extend %btnConfirmDisabled;
+  }
+  &[disabled][type=default]{
+    @extend %btnConfirmDisabled;
+  }
+  &[loading]:not([type]){
+    @extend %btnConfirmLoading;
+  }
+}
+
+/******************************************************
+* 状态类样式
+*******************************************************/
+/*
+* 方角
+*/
+button.btn-square {
+  @extend %btnSquare;
+}
+button.ben-btn-large{
+  @extend %btnLarge;
+}
+button.ben-btn-middle{
+  @extend %btnMiddle;
+}
+button.ben-btn-small{
+  @extend %btnSmall;
+}
+/*
+* 按钮阴影
+*/
+button.ben-btn-shadow{
+  @extend %shadow;
+}

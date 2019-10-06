@@ -1,0 +1,162 @@
+@import "./variables.scss";
+@import "./utilities.scss";
+/******************************************************
+* 色调
+*******************************************************/
+$pickerColor: $black;
+$pickerErrorColor: $errorColor;
+$pickerDisabledColor: #BDBDBD;
+$labelColor: #999999; 
+$requiredColor: $errorColor;
+$borderColor: #BDBDBD;
+$borderActiveColor: $black;
+$iconColor: $black;
+
+/******************************************************
+* 样式
+*******************************************************/
+%picker{
+  color: $pickerColor;
+  font-size: rpx(14);
+  min-height: rpx(26);
+  padding-right: rpx(15);
+  position:relative;  
+  view {
+    width: 100%;
+    min-height: rpx(27);
+    line-height: rpx(27);
+    color: $pickerColor;
+    font-size: rpx(14);
+  }
+}
+
+.ben-address-picker{
+  margin: 0;
+  label {
+    position: relative;
+    display: block;
+    padding: rpx(32) 0 rpx(2);
+    border-bottom: 1px solid $borderColor;
+    > view {
+      position: absolute;
+      top: rpx(39);
+      left: 0;
+      display: block;
+      width: 100%;
+      height: rpx(14);
+      font-size: rpx(14);
+      line-height: rpx(14);
+      color: $labelColor;
+    }
+    picker{
+      @extend %picker;
+      view {
+        opacity: 0;
+      }
+    }
+    .icon-font{
+      display: block;
+      position: absolute;
+      top: rpx(41);
+      right: 0;
+      width: rpx(12);
+      height: rpx(12);
+      color: $iconColor;
+      font-size: rpx(8);
+    }
+  }
+  &.ben-active{
+    label {
+      > view {
+        top: rpx(14);
+        left: -5%;
+        transform: scale(.9);
+      }
+      picker{
+        view {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &.ben-up{
+    label {
+      > view {
+        top: rpx(14);
+        left: -5%;
+        transform: scale(.9);
+        animation: inputAnime 0.3s linear;
+      }
+      picker{
+        view {
+          opacity: 1;
+          animation: inputValueAnime 0.3s linear;
+        }
+      }
+    }
+  }
+  
+  .error-message{
+    padding: rpx(8) 0;
+    font-size: rpx(12);
+    color: $pickerErrorColor;
+    display: none;
+  }
+  &.ben-error{
+    label {
+      border-bottom: 1px solid $pickerErrorColor;
+      picker {
+        color: $pickerErrorColor;
+        view {
+          color: $pickerErrorColor;
+        }
+      }
+    }
+    .error-message{
+      display: block;
+    }
+  }
+
+  &.ben-disabled{
+    label {
+      border-bottom: 1px solid $pickerDisabledColor;
+      > view {
+        color: $pickerDisabledColor;
+      }
+      picker {
+        color: $pickerDisabledColor;
+        view {
+          color: $pickerErrorColor;
+        }
+      }
+    }
+  }
+}
+@keyframes inputAnime
+{
+  from   {
+    top: rpx(39);
+    font-size: rpx(14);
+    height: rpx(14);
+    line-height: rpx(14);
+  }
+  to {
+    top: rpx(14);
+    left: -5%;
+    transform: scale(.9);
+  }
+}
+@keyframes inputValueAnime
+{
+  0%   {
+    opacity: 0;
+  }
+  75%   {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+

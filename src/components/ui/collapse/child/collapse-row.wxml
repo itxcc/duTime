@@ -1,0 +1,11 @@
+<view data-name="{{name}}" class="ben-collapse-row {{active?'ben-active':''}}" bind:tap='handleTap'>
+  <view class="collapse-row-title">
+    <slot name="title"></slot>
+    <view class="collapse-row-icon icon-font {{active?'icon-minus':'icon-plus'}}"></view>
+  </view>
+  <view class="collapse-row-body">
+    <view class="collapse-row-cover">
+      <slot name="body"></slot>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+<view wx:key="{{Math.random()}}" class="dialog-toast" style="{{styles}} {{animation}}">
+    <view wx:if="{{!!icon}}" class="icon-font icon-{{icon}}"></view>
+    <view wx:if="{{!!title}}" class="title">{{title}}</view>
+    <view class="txt"><slot></slot></view>
+</view>

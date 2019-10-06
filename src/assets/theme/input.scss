@@ -1,0 +1,165 @@
+@import "./variables.scss";
+@import "./utilities.scss";
+/******************************************************
+* 色调
+*******************************************************/
+/* 
+  主输入框
+  class 无
+*/
+$inputColor: $black;
+$inputErrorColor: $errorColor;
+$inputDisabledColor: #BDBDBD;
+$labelColor: #999999; 
+$requiredColor: $errorColor;
+$borderColor: #BDBDBD;
+$borderActiveColor: $black;
+
+/******************************************************
+* 样式
+*******************************************************/
+/* 
+  主输入框
+*/
+%input{
+  color: $inputColor;
+  font-size: rpx(14);
+  height: rpx(27);
+  font-family: Arial, Helvetica, sans-serif!important;
+}
+
+.ben-input-group{
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  label {
+    position: relative;
+    display: block;
+    padding: rpx(32) 0 rpx(2);
+    border-bottom: 1px solid $borderColor;
+    .input-label {
+      position: absolute;
+      top: rpx(39);
+      left: 0;
+      display: block;
+      width: 100%;
+      height: rpx(14);
+      font-size: rpx(14);
+      line-height: rpx(14);
+      color: $labelColor;
+    }
+    .input-label-emphasize{
+      margin-left: rpx(4);
+      color: $requiredColor;
+    }
+    input{
+      @extend %input;
+      opacity: 0;
+    }
+  }
+  .ben-input-slot-right{
+    position: absolute;
+    right: 0;
+    top: 68rpx;
+    line-height:40rpx;
+    font-size: 28rpx;
+    color: #2CA1F0;
+    z-index:999;
+    background-color: #fff;
+    padding:0;
+    &.disabled {
+      color: $inputDisabledColor;
+    }
+    &::after {
+      border: 0 none;
+    }
+  }
+  &.ben-active{
+    label {
+      .input-label {
+        top: rpx(14);
+        left: -5%;
+        transform: scale(.9);
+      }
+      input {
+        opacity: 1;
+      }
+    }
+  }
+  &.ben-up{
+    label {
+      .input-label {
+        top: rpx(14);
+        left: -5%;
+        transform: scale(.9);
+        animation: inputAnime 0.3s linear;
+      }
+      input {
+        opacity: 1;
+        animation: inputValueAnime 0.3s linear;
+      }
+    }
+  }
+  &.ben-focus{
+    label {
+      border-bottom: 1px solid $borderActiveColor;
+    }
+  }
+  
+  .error-message{
+    padding: rpx(8) 0;
+    font-size: rpx(12);
+    color: $inputErrorColor;
+    display: none;
+  }
+  &.ben-error{
+    label {
+      border-bottom: 1px solid $inputErrorColor;
+      input {
+        color: $inputErrorColor;
+      }
+    }
+    .error-message{
+      display: block;
+    }
+  }
+
+  &.ben-disabled{
+    label {
+      border-bottom: 1px solid $inputDisabledColor;
+      .input-label {
+        color: $inputDisabledColor;
+      }
+      input {
+        color: $inputDisabledColor;
+      }
+    }
+  }
+}
+@keyframes inputAnime
+{
+  from   {
+    top: rpx(39);
+    font-size: rpx(14);
+    height: rpx(14);
+    line-height: rpx(14);
+  }
+  to {
+    top: rpx(14);
+    left: -5%;
+    transform: scale(.9);
+  }
+}
+@keyframes inputValueAnime
+{
+  0%   {
+    opacity: 0;
+  }
+  75%   {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

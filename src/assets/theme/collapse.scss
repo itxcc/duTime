@@ -1,0 +1,55 @@
+@import "./variables.scss";
+@import "./iconfont.scss";
+/******************************************************
+* 色调
+*******************************************************/
+/* 
+  主输入框
+  class 无
+*/
+$titleColor: #333333;
+$iconColor: #BDBDBD;
+
+/******************************************************
+* 样式
+*******************************************************/
+.ben-collapse-row{
+  .collapse-row-title{
+    font-size: 14px;
+    line-height: 20px;
+    padding: 20px 30px 20px 0px;
+    color: $titleColor;
+    position: relative;
+    .icon-font{
+      position: absolute;
+      top: 50%;
+      right: 0px;
+      width: 16px;
+      height: 16px;
+      margin-top: -8px;
+      color: $iconColor;
+      font-size: 16px;
+      line-height: 16px;
+    }
+  }
+  .collapse-row-container{
+    padding: 0;
+    height: 0;
+    overflow: hidden;
+    .collapse-row-cover{
+      -webkit-transform:translateY(-50%);
+      transform:translateY(-50%);
+      -webkit-transition:.3s;
+      transition:.3s;
+    }
+  }
+  &.ben-active{
+    .collapse-row-container{
+      height: auto;
+      .collapse-row-cover{
+        -webkit-transform:translateY(0);
+        transform:translateY(0);  
+      }
+    }
+  }
+}

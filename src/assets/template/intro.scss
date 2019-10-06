@@ -1,0 +1,91 @@
+.training-exam{
+  padding:30rpx;
+  background: white;
+  .intro{
+    .img {
+        image {
+            width: 360rpx;
+            height: 200rpx;
+            display: block;
+        }
+    }
+    .main-info {
+        padding-left: 60rpx;
+        flex: 1;
+        .title {
+            font-family: PingFangSC-Medium;
+            font-size: 28rpx;
+            color: #666666;
+            letter-spacing: -0.48px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+        }
+        .name {
+            font-family: PingFangSC-Medium;
+            font-size: 24rpx;
+            color: #666666;
+            margin: 5rpx 0 15rpx;
+            letter-spacing: -0.41px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+        }
+        .txt {
+            font-family: PingFangSC-Regular;
+            font-size: 24rpx;
+            color: #999999;
+            letter-spacing: -0.41px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            word-break: break-all;
+        }
+    }
+  }
+  .tag-line{
+    justify-content: space-between;
+    padding-right: 16rpx;
+    .title{
+        font-size: 20rpx;
+        color: #666666;
+        margin-top: 34rpx;
+        width: 100rpx;
+    }
+    .tags{
+      margin-left: -15rpx;
+      flex: 1;
+      view{
+        display: inline-block;
+        padding: 0 10rpx;
+        height: 50rpx;
+        line-height: 50rpx;
+        border: 1px solid #E0E0E0;
+        font-size: 24rpx;
+        color: #999999;
+        letter-spacing: -0.35px;
+        margin-left: 15rpx;
+        box-sizing: border-box;
+        margin-top: 20rpx;
+      }
+    }
+
+    .views {
+      font-size: 20rpx;
+      color: #c8c8c8;
+      letter-spacing: -0.41px;
+      margin-top: 34rpx;
+      image {
+          margin-right: 13rpx;
+          width: 24rpx;
+          height: 16rpx;
+      }
+    }
+  }
+}

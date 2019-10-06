@@ -1,0 +1,180 @@
+@import "./variables.scss";
+@import "./utilities.scss";
+/******************************************************
+* 色调
+*******************************************************/
+
+$pageBackgroundColor: #FAFAFA;
+$mainFontColor: #999999;
+$subFontColor: #333;
+$cardBackgroundColor: #fff;
+$warningFontColor: #EE3124; 
+$borderColor: #ddd;
+$iconColor:#BDBDBD;
+$cuttingLineColor:#F0F0F0;
+
+/******************************************************
+* 样式
+*******************************************************/
+
+.dialog-con {
+  background: $cardBackgroundColor;
+  padding: 32rpx;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  left: 50%;
+  top: 50%;
+  width: calc(100% - 40rpx);
+  transform: translate(-50% , -50%);
+  -webkit-transform: translate(-50% , -50%);
+  position: relative;
+  .close {
+    position: absolute;
+    right: 24rpx;
+    top: 24rpx;
+    width: 58rpx;
+    height: 58rpx;
+    z-index: 30;
+  }
+  .close .icon {
+    font-size: 58rpx;
+    color: $iconColor;
+    width: 100%;
+    display: block;
+  }
+  .title {
+    font-size: 32rpx;
+    line-height: 44rpx;
+    padding-bottom: 26rpx;
+    border-bottom: 1px solid $cuttingLineColor;
+    color: $mainFontColor;
+    text-align: center;
+  }
+  .txt {
+    font-size: 24rpx;
+    line-height: 52rpx;
+    color: #666;
+    width: 100%;
+    max-height: 75vh;
+    overflow-y: scroll;
+    padding: 24rpx 16rpx;
+    word-break: break-all;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+  }
+  .detailContent{
+    .detailContentBox{
+      .middleTittle{
+        font-size: 28rpx;
+        line-height: 52rpx;
+        padding-bottom: 28rpx;
+        &.black{
+          color: #000;
+        }
+        &.red{
+          color: #DD1F2A;
+        }
+      }
+      .contentInfo{
+        padding-bottom: 34rpx;
+        .smallTittle{
+          font-size: 24rpx;
+          color: #000;
+          line-height: 44rpx;
+          .icon{
+            color: #DD1F2A;
+          }
+        }
+        .contentDes{
+          .contentDesLi{
+            font-size: 24rpx;
+            color: #3F3F3F;
+            line-height: 44rpx;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dialog-getcoupon-success{
+  background: #ffffff;
+  padding: 0;
+  width: calc(100% - 248rpx);
+  overflow: hidden;
+  .close {
+    right: rpx(8);
+    top: rpx(8);
+    width: rpx(20);
+    height: rpx(20);
+  }
+  .close .icon {
+    font-size: rpx(20);
+  }
+  .getcoupon-image{
+    padding: rpx(60) 0 rpx(8);
+    margin: 0 auto;
+    width: rpx(80);
+    height: auto;
+    display: block;
+    image {
+      width: 100%;
+    }
+  }
+  .getcoupon-title{
+    padding: 0 rpx(20) rpx(4);
+    font-size: rpx(14);
+    line-height: rpx(20);
+    color: #333333;
+    text-align: center;
+  }
+  .getcoupon-title-sub{
+    min-height: rpx(37);
+    padding: 0 rpx(20) rpx(67);
+    font-size: rpx(12);
+    line-height: rpx(17);
+    color: #BDBDBD;
+    text-align: center;
+  }
+  .dialog-getcoupon-btn{
+    border-top: 1px solid #E7E7E7;
+  }
+}
+
+.dialog-toast{
+  box-sizing: border-box;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% , -50%);
+  z-index: 1000;
+
+  min-width: rpx(142);
+  max-width: 80%;
+  text-align: center;
+  height: auto;
+  padding: rpx(26) rpx(10) rpx(21);
+  border-radius: rpx(8);
+  background: transparentize(#000, .20);
+  //-webkit-transform: translate(-50% , -50%);
+  .icon-font{
+    //width: rpx(40);
+    //height: rpx(40);
+    font-size: rpx(40);
+    color: #fff;
+    margin-bottom: rpx(12);
+  }
+  .title {
+    padding: rpx(6) 0;
+    font-size: rpx(14);
+    line-height: rpx(14);
+    color: #fff;
+    text-align: center;
+  }
+  .txt {
+    font-size: rpx(12);
+    line-height: rpx(17);
+    color: #fff;
+    text-align: center;
+  }
+}

@@ -1,0 +1,88 @@
+@import "./variables.scss";
+/******************************************************
+* 色调
+*******************************************************/
+
+$labelColor: #999999; 
+$requiredColor: $errorColor;
+$radioTextColor: $black;
+$radioColor: #999999;
+$radioBgColor: $white;
+$radioCheckedColor: $brandMainColor;
+$radioDisabledColor: #BDBDBD;
+$errorColor: $errorColor;
+
+/******************************************************
+* 样式
+*******************************************************/
+
+.ben-radio-group{
+  .ben-radio-title{
+    padding: 12px 0;
+    font-size: 12px;
+    line-height: 12px;
+    color: $labelColor;
+  }
+  .ben-radio-group-content{
+    display: flex;
+    justify-content: space-between;
+  }
+  .ben-radio-box{
+    display: inline-block;
+    position: relative;
+    padding: 8px 8px 8px 32px;
+    view {
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      border-radius: 8px;
+      width: 16px;
+      height: 16px;
+      margin-top: -8px;
+      background-color: $radioBgColor;
+      border: 1px solid $radioColor;
+    }
+    text {
+      font-size: 14px;
+      color: $radioTextColor;
+    }
+
+    &.ben-checked{
+      view {
+        background-color: $white;
+        border: 2px solid $brandMainColor;
+        &:after{
+          content: "";
+          display: block;
+          position: absolute;
+          top: 3px;
+          left: 3px;
+          border-radius: 3px;
+          width: 6px;
+          height: 6px;
+          background-color: $brandMainColor;
+        }
+      }
+    }
+    &.ben-disabled{
+      view {
+        background-color: $radioDisabledColor;
+        border: 1px solid $radioDisabledColor;
+      }
+    }
+  }
+
+  .error-message{
+    padding: 8px 0;
+    font-size: 12px;
+    color: $errorColor;
+    display: none;
+  }
+  &.ben-error{
+    .error-message{
+      display: block;
+    }
+  }
+}
+
+

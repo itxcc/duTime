@@ -1,0 +1,10 @@
+<view style="{{styles}}" class="ben-switch-group {{customClass?'customClass':''}} {{hasError?'ben-error':''}}">
+  <view class="ben-switch-title" wx:if="{{labelText}}">
+    <!--<text wx:if="{{required}}">*</text>-->
+    {{labelText}}
+  </view>
+  <view class="ben-switch-group-content">
+    <switch checked="{{value}}" bindchange="switchChange"/>
+  </view>
+  <view class="error-message">{{errorMsg}}</view>
+</view>

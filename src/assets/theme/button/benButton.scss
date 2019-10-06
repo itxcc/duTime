@@ -1,0 +1,237 @@
+@import "../variables.scss";
+@import "./buttonVariables.scss";
+/******************************************************
+* 色调
+*******************************************************/
+
+
+/******************************************************
+* 样式
+*******************************************************/
+%benBtn{
+  position:relative;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  box-sizing:border-box;
+  text-align:center;
+  text-decoration:none;
+  -webkit-tap-highlight-color:transparent;
+  overflow:hidden;
+  &:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+  }
+  &.ben-loading{
+    &:before{
+      content: "";
+      background-size: cover;
+      display: inline-block;
+      animation: rotate 1s infinite linear;
+    }
+  }
+}
+@keyframes rotate
+{
+  from   {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+/*
+* 主按钮
+*/
+.ben-btn-primary {
+  @extend %benBtn;
+  @extend %btnPrimary;
+  &.ben-hover{
+    @extend %btnPrimaryHover;
+  }
+  &.ben-disabled{
+    @extend %btnPrimaryDisabled;
+  }
+  &.ben-loading{
+    @extend %btnPrimaryLoading;
+  }
+}
+
+/*
+* 次按钮
+*/
+.ben-btn-default {
+  @extend %benBtn;
+  @extend %btnDefault;
+  &.ben-hover{
+    @extend %btnDefaultHover;
+  }
+  &.ben-disabled{
+    @extend %btnDefaultDisabled;
+  }
+  &.ben-loading{
+    @extend %btnDefaultLoading;
+  }
+  &.ben-btn-sub{
+    @extend %btnDefaultSub;
+    &.ben-hover{
+      @extend %btnDefaultSubHover;
+    }
+    &.ben-loading{
+      @extend %btnDefaultSubLoading;
+    }
+  }
+}
+/*
+* 刷新红按钮
+*/
+.ben-btn-default.ben-btn-refresh,
+.ben-btn-primary.ben-btn-refresh {
+  @extend %btnRefresh;
+  &.ben-btn-middle{
+    @extend %btnRefreshMiddle;
+  }
+  &.ben-btn-small{
+    @extend %btnRefreshSmall;
+  }
+}
+
+/*
+* 微信支付按钮
+*/
+.ben-btn-default.ben-btn-wechat,
+.ben-btn-primary.ben-btn-wechat {
+  @extend %btnWechat;
+  &.ben-hover{
+    @extend %btnWechatHover;
+  }
+  &.ben-disabled{
+    @extend %btnWechatDisabled;
+  }
+  &.ben-loading{
+    @extend %btnWechatLoading;
+  }
+}
+
+/*
+* 确认按钮
+*/
+.ben-btn-default.ben-btn-confirm,
+.ben-btn-primary.ben-btn-confirm {
+  @extend %btnConfirm;
+  &.ben-hover{
+    @extend %btnConfirmHover;
+  }
+  &.ben-disabled{
+    @extend %btnConfirmDisabled;
+  }
+  &.ben-loading{
+    @extend %btnConfirmLoading;
+  }
+}
+
+/******************************************************
+* 状态类样式
+*******************************************************/
+/*
+* 方角
+*/
+.ben-btn-default.btn-square,
+.ben-btn-primary.btn-square {
+  @extend %btnSquare;
+}
+.ben-btn-default.ben-btn-large,
+.ben-btn-primary.ben-btn-large{
+  @extend %btnLarge;
+}
+.ben-btn-default.ben-btn-middle,
+.ben-btn-primary.ben-btn-middle{
+  @extend %btnMiddle;
+}
+.ben-btn-default.ben-btn-small,
+.ben-btn-primary.ben-btn-small{
+  @extend %btnSmall;
+}
+/*
+* 按钮阴影
+*/
+.ben-btn-default.ben-btn-shadow,
+.ben-btn-primary.ben-btn-shadow{
+  @extend %shadow;
+}
+
+/******************************************************
+* 组合样式
+*******************************************************/
+/*
+* 双主按钮
+*/
+.ben-btn-double{
+  background: linear-gradient(to right, $brandBgColorStart, $brandBgColorEnd);
+  height: rpx(48);
+  position: relative;
+  .ben-btn-primary{
+    width: 50%;
+    height: rpx(48);
+    line-height: rpx(48);
+    background: none;
+    float: left;
+  }
+  &:after{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    opacity: .3;
+    width: 1px;
+    height: 50%;
+    background: #ffffff;
+  }
+}
+/*
+* 双次按钮
+*/
+.ben-btn-double-sub{
+  background: #ffffff;
+  height: rpx(48);
+  position: relative;
+  .ben-btn-default{
+    width: 50%;
+    height: rpx(48);
+    line-height: rpx(48);
+    background: none;
+    float: left;
+    border: none;
+    border-radius: 0px;
+    &:after{
+      border: none;
+      border-radius: 0px;
+    }
+    &.ben-hover,
+    &.ben-disabled,
+    &.ben-loading{
+      border: none;
+      border-radius: 0px;
+      &:after{
+        border: none;
+        border-radius: 0px;
+      }
+    }
+  }
+  &:after{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: #E7E7E7;
+  }
+}

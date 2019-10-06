@@ -1,0 +1,3 @@
+<view class="ben-collapse-group">
+  <slot></slot>
+</view>

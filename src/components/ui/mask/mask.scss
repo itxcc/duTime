@@ -1,0 +1,95 @@
+/* widgets/dialog.wxss */
+.ben-mask {
+  position:fixed;
+  background: #000000;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  &.ben-dialog-active {
+    display: block;
+    opacity: 0.5;
+    animation: maskFade .3s linear;
+    -webkit-animation: maskFade .3s linear;
+  }
+  &.ben-dialog-toast{
+    background: transparent;
+  }
+}
+
+.ben-dialog {
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  display: none;
+  transition: opacity 8s;
+  -moz-transition: opacity 8s;
+  -webkit-transition: opacity 8s;
+  -o-transition: opacity 8s;
+  &.ben-dialog-active {
+    display: block;
+    opacity: 1;
+    animation: dialogFade .3s linear;
+    -webkit-animation: dialogFade .3s linear;
+  }
+
+  &.ben-dialog-up{
+    width: 100%;
+    height: auto;
+    top: auto;
+    bottom: 0;
+    &.ben-dialog-active {
+      animation: dialogUp .1s linear;
+      -webkit-animation: dialogUp .1s linear;
+    }
+  }
+
+  &.ben-dialog-toast{
+    display: none;
+    opacity: 0;
+    &.ben-dialog-active {
+      display: block;
+      opacity: 1;
+      animation: none;
+      -webkit-animation: none;
+    }
+  }
+}
+@keyframes dialogUp
+{
+  from {
+    display: block;
+    bottom: -100vh;
+  }
+  to {
+    bottom: 0;
+  }
+}
+@keyframes maskFade
+{
+  from {
+    display: block;
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+@keyframes dialogFade
+{
+  from {
+    display: block;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

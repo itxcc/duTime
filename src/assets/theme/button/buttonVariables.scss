@@ -1,0 +1,290 @@
+@import "../variables.scss";
+@import "../utilities.scss";
+/******************************************************
+* 色调
+*******************************************************/
+$loadSrc: $loadSrc;
+$loadSrcWhite: $loadSrcWhite;
+$btnBg: #5A9CF9;
+$btnBgHover: #5A9CF9;
+$btnWechatBg: #55B737;
+$btnWechatBgHover: mix($btnWechatBg, #000, 85%);
+$btnConfirmBg: #fff;
+$btnConfirmColor: #02549A;
+$btnConfirmDisabledColor: #BDBDBD;
+$shadowColor: transparentize(#1F82E3, .80);
+
+/******************************************************
+* 样式
+*******************************************************/
+/*
+* 主按钮
+*/
+%btnPrimary{
+  position: relative;
+  color: #ffffff;
+  background: $btnBg;
+  font-size: rpx(16);
+  padding: 0 rpx(10);
+  height: rpx(36);
+  line-height: rpx(36);
+  border-radius: rpx(0);
+  // border: 1px solid $btnBg;
+  box-sizing: border-box;
+  &:after{
+    border: none;
+    border-radius: rpx(0);
+  }
+}
+%btnPrimaryHover{
+  color: #ffffff;
+  background: $btnBgHover;
+}
+%btnPrimaryDisabled{
+  color: #ffffff;
+  background: #DDDDDD;
+}
+%btnPrimaryLoading{
+  color: transparent!important;
+  background: $btnBg;
+  position: relative;
+  // text-indent: -10000px;
+  &:before{
+    // background: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: rpx(20);
+    height: rpx(20);
+    margin: {
+      top: rpx(-10);
+      left: rpx(-10);
+    }
+    background: {
+      image: url($loadSrcWhite);
+    }
+    animation: rotate 1s infinite linear;
+  }
+}
+
+/*
+* 次按钮
+*/
+%btnDefault{
+  position: relative;
+  color: #666666;
+  background: #F0F0F0;
+  font-size: rpx(14);
+  padding: 0 rpx(10);
+  height: rpx(36);
+  line-height: rpx(36);
+  border-radius: rpx(0);
+  box-sizing: border-box;
+  &:after{
+    border: none;
+  }
+}
+%btnDefaultHover{
+  color: #666666;
+  background: #F0F0F0;
+  &:after{
+    border: none;
+  }
+}
+%btnDefaultDisabled{
+  background: transparent;
+  color:  #BDBDBD;
+  &:after{
+    border: none;
+  }
+}
+%btnDefaultLoading{
+  background: transparent;
+  color: transparent!important;
+  position: relative;
+  // text-indent: -10000px;
+  &:before{
+    // background: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: rpx(20);
+    height: rpx(20);
+    margin: {
+      top: rpx(-10);
+      left: rpx(-10);
+    }
+    background: {
+      image: url($loadSrc);
+    }
+    animation: rotate 1s infinite linear;
+  }
+}
+@keyframes rotate
+{
+  from   {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+/*
+* 次按钮(辅助)
+*/
+%btnDefaultSub{
+  color: #02549A;
+  border: 1px solid #02549A;
+}
+%btnDefaultSubHover{
+  color: #1B6FC1;
+  border: 1px solid #1B6FC1;
+}
+%btnDefaultSubLoading{
+  color: #1B6FC1;
+  border: 1px solid #1B6FC1;
+}
+
+/*
+* 刷新按钮
+*/
+%btnRefresh{
+  &:before{
+    content: "\e63b";
+    font-family:"iconfont" !important;
+    font-size: rpx(14);
+    margin-right: rpx(8);
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: middle;    
+  }
+}
+%btnRefreshMiddle{
+  padding-left: rpx(14);
+  padding-right: rpx(14);
+}
+%btnRefreshSmall{
+  padding-left: rpx(10);
+  padding-right: rpx(10);
+}
+
+/*
+* 微信支付按钮
+*/
+%btnWechat{
+  background: $btnWechatBg;
+  border-radius: 0px;
+  &:after{
+    border-radius: 0px;
+  }
+}
+%btnWechatHover{
+  background: $btnWechatBgHover;
+  border-radius: 0px;
+  &:after{
+    border-radius: 0px;
+  }
+}
+%btnWechatDisabled{
+  border-radius: 0px;
+  &:after{
+    border-radius: 0px;
+  }
+}
+%btnWechatLoading{
+  background: $btnWechatBg;
+  border-radius: 0px;
+  &:after{
+    border-radius: 0px;
+  }
+}
+
+/*
+* 确认按钮
+*/
+%btnConfirm{
+  font-size: rpx(14);
+  color: $btnConfirmColor;
+  background: $btnConfirmBg;
+  border: none;
+  border-radius: 0px;
+  &:after{
+    border: none;
+    border-radius: 0px;
+  }
+}
+%btnConfirmHover{
+  color: $btnConfirmColor;
+  background: $btnConfirmBg;
+  border: none;
+  &:after{
+    border: none;
+    border-radius: 0px;
+  }
+}
+%btnConfirmDisabled{
+  color: $btnConfirmDisabledColor;
+  background: $btnConfirmBg;
+  border: none;
+  &:after{
+    border: none;
+    border-radius: 0px;
+  }
+}
+%btnConfirmLoading{
+  color: $btnConfirmColor;
+  background: $btnConfirmBg;
+  border: none;
+  &:after{
+    border: none;
+    border-radius: 0px;
+  }
+}
+
+/******************************************************
+* 状态类样式
+*******************************************************/
+%btnSquare{
+  border-radius: 0px;
+  &:after{
+    border-radius: 0px;
+  }
+}
+%btnLarge{
+  height: rpx(48);
+  line-height: rpx(48);
+}
+%btnMiddle{
+  width: auto;
+  display: inline-block;
+  padding-left: rpx(19);
+  padding-right: rpx(19);
+  font-size: rpx(12);
+  height: rpx(35);
+  line-height: rpx(35);
+}
+%btnSmall{
+  width: auto;
+  display: inline-block;
+  padding-left: rpx(19);
+  padding-right: rpx(19);
+  font-size: rpx(12);
+  height: rpx(30);
+  line-height: rpx(30);
+}
+/******************************************************
+* 组合样式
+*******************************************************/
+%shadow{
+  box-shadow: 0 9px 15px $shadowColor;
+  // position: relative;
+  // &:before{
+  //   content: "";
+  //   width: 100%;
+  //   height: 1px;
+  //   display: block;
+  //   position: absolute;
+  //   left: 0;
+  //   bottom: 0;
+  //   // box-shadow: 0 9px 15px $shadowColor;
+  // }
+}

@@ -1,0 +1,21 @@
+<view style="{{styles}}" class="ben-radio-group {{customClass?'customClass':''}} {{hasError?'ben-error':''}}">
+  <view class="ben-radio-title" wx:if="{{labelText}}">
+    <!--<text wx:if="{{required}}">*</text>-->
+    {{labelText}}
+  </view>
+  <view class="ben-radio-group-content">
+    <view
+      class="ben-radio-box {{radio.disabled?'ben-disabled':''}} {{radio.checked?'ben-checked':''}}"
+      wx:for-item="radio"
+      wx:for="{{items}}"
+      wx:key="{{radio.id}}"
+      data-value="{{radio.value}}"
+      data-disabled="{{radio.disabled}}"
+      bindtap="handleTap"
+    >
+      <view></view>
+      <text>{{radio.name}}</text>
+    </view>
+  </view>
+  <view class="error-message">{{errorMsg}}</view>
+</view>

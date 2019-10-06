@@ -1,0 +1,10 @@
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+ehthumbs.db
+Thumbs.db
+.log
+*.log
+node_modules
+dist

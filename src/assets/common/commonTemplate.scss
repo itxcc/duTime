@@ -1,0 +1,405 @@
+/******************************************************
+* 色调
+*******************************************************/
+$floatIconBg: rgba(65,64,66,0.7);
+$floatIconFontSize: 32rpx;
+
+
+/******************************************************
+* 无网络模板样式
+*******************************************************/
+// .noNetwork-container{
+//   position:fixed;
+//   width: 100%;
+//   height: 100%;
+//   background: #fff;
+//   padding-top: 80rpx;
+//   border-top: 1px solid #ddd;
+//   .icon{
+//     width: 80px;
+//     height: 80px;
+//     margin: 0 auto;
+//     .img{
+//       width: 100%;
+//       height: 100%;
+//     }
+//   }
+//   .text{
+//     padding-top: 32rpx;
+//     font-size: 28rpx;
+//     color: #999999;
+//     line-height: 26px;
+//     text-align: center;
+//   }
+//   .button{
+//     margin: 32px auto 0;
+//     text-align: center;
+//   }
+// }
+/******************************************************
+* iconOrderlist样式
+*******************************************************/
+.icon-order-list-box{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  position: relative;
+  background: $floatIconBg;
+  line-height: 0;
+  .icon{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 80rpx;
+    font-size: $floatIconFontSize;
+    color: #fff;
+    border-radius: 50%;
+  }
+}
+/******************************************************
+* iconService样式
+*******************************************************/
+.icon-server-box{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  position: relative;
+  background: $floatIconBg;
+  line-height: 0;
+  .icon{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 80rpx;
+    font-size: $floatIconFontSize;
+    color: #fff;
+    border-radius: 50%;
+  }
+  .contact{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+}
+/******************************************************
+* iconPhone样式
+*******************************************************/
+.icon-phone-box{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: $floatIconBg;
+  position: relative;
+  line-height: 0;
+  .icon{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 80rpx;
+    font-size: $floatIconFontSize;
+    color: #fff;
+    border-radius: 50%;
+  }
+}
+/******************************************************
+* iconShare样式
+*******************************************************/
+.icon-share-box{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  position: relative;
+  background: $floatIconBg;
+  line-height: 0;
+  .icon{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 80rpx;
+    font-size: $floatIconFontSize;
+    color: #fff;
+    border-radius: 50%;
+  }
+  .icon-share-button{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+}
+/******************************************************
+* iconHome样式
+*******************************************************/
+.icon-Home-box{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  position: relative;
+  background: $floatIconBg;
+  line-height: 0;
+  .icon{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 80rpx;
+    font-size: $floatIconFontSize;
+    color: #fff;
+    border-radius: 50%;
+  }
+  .icon-share-button{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+}
+/******************************************************
+* couponCard样式
+*******************************************************/
+//.couponCard{
+//  background-color: #FFF;
+//  border-radius: 4rpx;
+//  position: relative;
+//  height: rpx(88);
+//  overflow: hidden;
+//  box-shadow: 0 4rpx 8rpx 0 rgba(0,0,0,0.06);
+//  .price{
+//    position: absolute;
+//    left: 0;
+//    top: 0;
+//    font-size: 48rpx;
+//    color: #DD1F2A;
+//    line-height: 66rpx;
+//    padding: 56rpx 38rpx;
+//    text-align: center;
+//    width: 206rpx;
+//    .icon{
+//      font-size: 24rpx;
+//      line-height: 34rpx;
+//    }
+//  }
+//  .info{
+//    margin-left: 206rpx;
+//    padding: 50rpx 42rpx;
+//    font-size: 28rpx;
+//    color: #333333;
+//    line-height: 40rpx;
+//    border-left: 1px dashed  #EDEDED;
+//    position: relative;
+//    .time{
+//      margin-top: 4rpx;
+//      font-size: 22rpx;
+//      color: #BDBDBD;
+//      line-height: 32rpx;
+//    }
+//    &:before{
+//      content: "";
+//      width: 28rpx;
+//      height: 28rpx;
+//      background-color: #F5F5F5;
+//      border-radius: 50%;
+//      position: absolute;
+//      top: 0;
+//      left: 0;
+//      transform: translate(-50% , -50%);
+//      -webkit-transform: translate(-50% , -50%);
+//    }
+//    &:after{
+//      content: "";
+//      width: 28rpx;
+//      height: 28rpx;
+//      background-color: #F5F5F5;
+//      border-radius: 50%;
+//      position: absolute;
+//      bottom: 0;
+//      left: 0;
+//      transform: translate(-50% , 50%);
+//      -webkit-transform: translate(-50% , 50%);
+//    }
+//  }
+//  .statusName{
+//    color: #BDBDBD;
+//    width: 88rpx;
+//    height: 40rpx;
+//    font-size: 22rpx;
+//    line-height: 32rpx;
+//    padding: 4rpx 8rpx;
+//    border: 1px solid #BDBDBD;
+//    border-radius: 4rpx;
+//    position: absolute;
+//    top: 16rpx;
+//    right: 16rpx;
+//  }
+//  .radio{
+//    width: 32rpx;
+//    height: 32rpx;
+//    border-radius: 50%;
+//    position: relative;
+//    .icon{
+//      width: 34rpx;
+//      height: 34rpx;
+//      border-radius: 50%;
+//      color: #124191;
+//      font-size: 32rpx;
+//      line-height: 32rpx;
+//      position: absolute;
+//      top: -1px;
+//      left: -1px;
+//    }
+//    border: 1px solid #BDBDBD;
+//    border-radius: 114rpx;
+//    position: absolute;
+//    top: 50%;
+//    right: 32rpx;
+//    transform: translateY(-50%);
+//    -webkit-transform: translateY(-50%);
+//  }
+//  &.gray{
+//    .price{
+//      color: #BDBDBD;
+//    }
+//    .info{
+//      color: #999;
+//    }
+//  }
+//}
+
+$couponDisabled: #BDBDBD;
+$couponRewardType01:  #FF6A0E;
+$couponRewardType02:  #F5A623;
+$couponRewardType05:  #2CA1F0;
+$couponRewardType06:  #DF4036;
+.couponCard{
+  background-color: #FFF;
+  min-height: rpx(115);
+  border-top:rpx(2) solid $couponDisabled;
+  box-shadow: rpx(3) 0 rpx(5) 0 rgba(0,0,0,0.05);
+  border-radius: rpx(2);
+  &.reward-type-01 { border-top:rpx(2) solid $couponRewardType01; .ben-flex-row { .reward-type-name { color: $couponRewardType01; } .price { color: $couponRewardType01; } } }
+  &.reward-type-02 { border-top:rpx(2) solid $couponRewardType02; .ben-flex-row { .reward-type-name { color: $couponRewardType02; } .price { color: $couponRewardType02; } } }
+  &.reward-type-05 { border-top:rpx(2) solid $couponRewardType05; .ben-flex-row { .reward-type-name { color: $couponRewardType05; } .price { color: $couponRewardType05; } } }
+  &.reward-type-06 { border-top:rpx(2) solid $couponRewardType06; .ben-flex-row { .reward-type-name { color: $couponRewardType06; } .price { color: $couponRewardType06; } } }
+  .ben-flex-row {
+    align-items: center;
+    padding:rpx(18) rpx(21) rpx(10);
+    font-family: PingFangSC-Regular;
+    .info{
+      font-size: rpx(12);
+      color: #999999;
+      line-height: rpx(17);
+      position: relative;
+      .reward-type-name {
+        font-size: rpx(16);
+        line-height:rpx(22);
+        margin-bottom:rpx(2);
+      }
+    }
+    .price{
+      font-family: PingFangSC-Light;
+      font-size: rpx(26);
+      color: $couponDisabled;
+      line-height: rpx(37);
+      text-align: center;
+      text {
+        letter-spacing:0;
+        padding:0;
+      }
+      .icon{
+        font-size: rpx(14);
+        line-height: rpx(20);
+      }
+      .discount {
+        font-size: rpx(14);
+        letter-spacing: 0;
+        text-align: center;
+        line-height: rpx(37);
+      }
+    }
+  }
+  .time-con{
+    position: relative;
+    padding:0 rpx(21);
+    height: rpx(36);
+    font-size: rpx(11);
+    line-height: rpx(36);
+    color: $couponDisabled;
+    border-top: rpx(1) dashed #ECECEC;
+    &:before, &:after{
+      content: "";
+      width: rpx(10);
+      height: rpx(10);
+      background-color: #F5F5F5;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+    }
+    &:after{
+      right: 0;
+      transform: translate(50% , -50%);
+      -webkit-transform: translate(50% , -50%);
+    }
+    &:before {
+      left: 0;
+      transform: translate(-50% , -50%);
+      -webkit-transform: translate(-50% , -50%);
+    }
+  }
+
+  .statusName{
+    color: $couponDisabled;
+    width: 88rpx;
+    height: 40rpx;
+    font-size: 22rpx;
+    line-height: 32rpx;
+    padding: 4rpx 8rpx;
+    border: 1px solid $couponDisabled;
+    border-radius: 4rpx;
+    position: absolute;
+    top: 16rpx;
+    right: 16rpx;
+  }
+  .radio{
+    width: 32rpx;
+    height: 32rpx;
+    border-radius: 50%;
+    position: relative;
+    .icon{
+      width: 34rpx;
+      height: 34rpx;
+      border-radius: 50%;
+      color: #124191;
+      font-size: 32rpx;
+      line-height: 32rpx;
+      position: absolute;
+      top: -1px;
+      left: -1px;
+    }
+    border: 1px solid $couponDisabled;
+    border-radius: 114rpx;
+    position: absolute;
+    top: 50%;
+    right: 32rpx;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+  }
+  &.gray{
+    .price{
+      color: $couponDisabled;
+    }
+    .info{
+      color: #999;
+    }
+  }
+}
+
+

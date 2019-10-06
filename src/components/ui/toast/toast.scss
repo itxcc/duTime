@@ -1,0 +1,35 @@
+@import "../../../assets/theme/iconfont.scss";
+@import "../../../assets/theme/dialog.scss";
+.ben-toast-con {
+  box-sizing: border-box;
+  position:fixed;
+  height: auto;
+  min-width: 400rpx;
+  max-width: 80%;
+  padding:40rpx 20rpx;
+  border-radius: 16rpx;
+  background-color: rgba(1,1,1,0.8);
+  color: #fff;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999;
+  .icon-font {
+    font-size:64rpx;
+  }
+  .title {
+    font-size: 28rpx;
+  }
+  .msg {
+    font-size: 24rpx;
+    line-height: 52rpx;
+  }
+}
+@keyframes toasting {
+  0% { opacity: 0; display: block; }
+  30% { opacity: 1; }
+  90% { opacity: 1;}
+  100% { opacity: 0; display: none; }
+}

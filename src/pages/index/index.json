@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "捕鹿3天招人",
+  "usingComponents": {
+    "top-info": "../../components/Component/top-info/top-info"
+  }
+}

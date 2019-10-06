@@ -1,0 +1,5 @@
+<view class="spice-button-group {{customClass}} {{hasError?'spice-error':''}}">
+  <!--<button bindtap="handleTap"  loading="{{loading}}"><slot></slot></button>-->
+  <view bindtap="handleTap" class="spice-button {{btnClass}} {{disabled?'spice-disabled':''}} {{loading?'spice-loading':''}}" hover-class="spice-hover" ><slot></slot></view>
+  <view class="error-message">{{errorMsg}}</view>
+</view>

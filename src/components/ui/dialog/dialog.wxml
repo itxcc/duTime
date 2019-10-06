@@ -1,0 +1,15 @@
+<!--widgets/dialog.wxml-->
+<view class="popBg" wx:if="{{showMask}}" bindtap='hideDialog' wx:if="{{visible}}" style="background-color:{{maskColor}};">
+</view>
+<view wx:if="{{visible}}">
+  <view class="dgBd {{className}}" style="width: {{width}}px;margin-left: -{{width/2}}px;{{styles}}">
+    <view class="dgHeader" wx:if="{{showHeader}}"><slot name="header"></slot>{{title}}</view> 
+    <view class="dgContent"><slot></slot></view>
+    <view class="dgFooter" wx:if="{{showFooter}}">
+       <slot name="footer"></slot>
+      <button bindtap='cancelButton'>{{cancelText}}</button>
+      <button bindtap='okButton'>{{okText}}</button>
+    </view>
+    <view wx:if="{{showClose}}" bindtap='hideDialog'>关闭</view>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+<view style="{{styles}}" class="ben-input-group {{customClass?'customClass':''}} {{hasError?'ben-error':''}} {{active?'ben-active':''}} {{activeAnime?'ben-up':''}} {{onfocus?'ben-focus':''}} {{disabled?'ben-disabled':''}}">
+  <label>
+    <view class="input-label">{{labelText}}<text class="input-label-emphasize" wx:if="{{emphasize}}">*</text></view>
+    <input 
+      value="{{value}}"
+      type="{{type}}"
+      password="{{password}}"
+      placeholder="{{placeholder}}"
+      disabled="{{disabled}}"
+      bindinput="handleInput"
+      bindfocus="handleFocus"
+      bindblur="handleBlur"
+      style="{{inputStyles}}"
+    />
+    <view class="ben-input-slot-right" wx:if="{{inputSlot}}" bindtap="handleInputSlot">
+      <slot name="inputSlot"></slot>
+    </view>
+  </label>
+  <view class="error-message">{{errorMsg}}</view>
+</view>

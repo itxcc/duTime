@@ -1,0 +1,84 @@
+<view class="container {{isIPX?'isIPX':''}}">
+	<top-info></top-info>
+	<view class="interview">
+		<view class="feture-days" bind:tap="toList">
+			<view>{{indexInfo.isAudit==3?"马上招人":"正在求职的人数"}}</view>
+			
+			<view class="{{indexInfo.isAudit==3?'default':'gray'}}">{{indexInfo.kezhaoOrQiuzhi}}
+				<span wx:if="{{indexInfo.isAudit!=3}}" class="new-user-text">全国</span>
+				<span wx:if="{{indexInfo.isAudit==3 && indexInfo.focusNums>0}}" class="old-user-num"> {{indexInfo.focusNums}}</span>
+			</view>
+		</view>
+		<!-- <view class="location">
+			<picker bindchange="bindChangeCity" value="{{cityIndex}}" range="{{cityGroup}}">
+				<view class="picker">
+				{{cityGroup[cityIndex]}} >
+				</view>
+			</picker>
+		</view> -->
+		<view class="ben-flex-row nums">
+			<view bind:tap="toMyTanlent">
+			<!-- <view bind:tap="postMessage">测试模板消息</view> -->
+
+				<view>关注我公司的人</view>
+				<view class="mail-num" >
+					{{indexInfo.CompanyFans}}
+					<span wx:if="{{indexInfo.CompanyNewFans > 0}}" class="collectionNewNum">+ {{indexInfo.CompanyNewFans}}</span>
+				</view>
+			</view>
+			<view bind:tap="toMyInvite" data-index="1">
+				<view>已发送面试意向</view>
+				<!-- <view>未读的面试邀请</view> -->
+				<view class="mail-num" >
+					{{indexInfo.unreadInviteNums}}
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="getmore-list">
+		<view class="item" wx:if="{{indexInfo.unreadInviteNums>0}}" bind:tap="toMyInvite">
+			<view class="img"><image src="../../static/image/gray/none-invite.png" mode="aspectFill" /></view>
+			<view class="des">
+				<view class="title">有 <text class="big">{{indexInfo.receiveInviteNums}}</text> 位同学接受了您的面试邀请</view>
+				<view class="txt blue">马上联系，走起！</view>
+			</view>
+		</view>
+		<view class="item" wx:if="{{indexInfo.unreadInviteNums<=0}}" bind:tap="toMyInvite">
+			<view class="img"><image src="../../static/image/gray/none-invite.png" mode="aspectFill" /></view>
+			<view class="des">
+				<view class="title">暂时没有同学接受面试邀请</view>
+				<view class="txt blue">耐心等待？or 试试邀请更多同学？</view>
+			</view>
+		</view>
+		<view class="item" bind:tap="toMyBox">
+			<view class="img"><image src="../../static/image/gray/resume.png" mode="aspectFill" /></view>
+			<view class="des">
+				<block wx:if="{{indexInfo.unreadResumeNums >0}}">
+					<view class="title">您有 <text class="big">{{indexInfo.unreadResumeNums}}</text> 封未读简历</view>
+
+					<view class="txt blue">点击查看详情！</view>
+				</block>
+				<block wx:else>
+					<view class="title">您有 0 封未读简历</view>
+					<view class="txt">发布更多岗位，吸引优秀同学！</view>
+				</block>
+			</view>
+		</view>
+	</view>
+	<view >
+		<view class="h3">为您推荐</view>
+		<view class="recom-list">
+			<block wx:for="{{routeList}}" wx:key="">
+				<view class="item" data-index="{{index}}" bind:tap="toList">
+					<view class="img"><image src="{{item.url}}" mode="aspectFill" /></view>
+					<view class="des">
+						<view class="title">{{item.name}}</view>
+						<view class="txt">目前有 {{item.num}} 人求职中</view>
+					</view>
+					<view class="btn-right">></view>
+				</view>
+			</block>
+		</view>
+	</view>
+
+</view>

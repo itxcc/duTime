@@ -1,0 +1,6 @@
+<!--widgets/dialog.wxml-->
+<view class="ben-mask {{animationClass}} {{visible?activeClass:''}}" bindtap='hideDialog' style="{{maskStyles}}" catchtouchmove='true'>
+</view>
+<view class="ben-dialog {{animationClass}} {{visible?activeClass:''}}" style="{{dialogStyles}}" catchtouchmove='true'>
+  <slot></slot>
+</view>

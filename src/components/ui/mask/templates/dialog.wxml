@@ -1,0 +1,61 @@
+<template name="dialog">
+  <view class="dialog-con">
+    <view class="close" bindtap="dialogClose">
+      <view class="icon icon-font icon-close"></view>
+    </view>
+    <view class="title">{{title}}</view>
+    <view class="txt">
+      <scroll-view scroll-y style="max-height: 756rpx;">
+      <view wx:if="{{content}}" wx:for="{{content}}" wx:key="{{index}}">{{item}}</view>
+      <view wx:if="{{detailContent}}" class="detailContent">
+        <view class="detailContentBox" wx:if="{{detailContent}}" wx:for="{{detailContent}}" wx:key="{{index}}">
+          <view class="middleTittle {{item.middleTittle.color == 'black' ? 'black' : 'red'}}">{{item.middleTittle.text}}</view>
+          <view class="contentInfo" wx:for="{{item.contentInfo}}" wx:key="index">
+            <view class="smallTittle"><text class="icon" wx:if="{{item.smallTittle.icon}}">{{item.smallTittle.icon}}</text>{{item.smallTittle.text}}</view>
+            <view class="contentDes">
+              <view class="contentDesLi" wx:for="{{item.contentDes}}" wx:key="index">{{item}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      </scroll-view>
+    </view>
+  </view>
+</template>
+
+<template name="getCouponSuccess">
+  <view class="dialog-con dialog-getcoupon-success">
+    <view class="getcoupon-image">
+      <image src="/static/image/coupon/getCouponSuccess.png" mode="widthFix"/>
+    </view>
+    <view class="getcoupon-title">恭喜你，领取成功</view>
+    <view class="getcoupon-title-sub">优惠券已发放到您的账户</view>
+    
+    <view class="dialog-getcoupon-btn">
+      <button class="ben-btn-confirm ben-btn-large" bindtap="useCouponAfterGetting">去使用</button>
+    </view>
+    <view class="close" bindtap="dialogClose">
+      <view class="icon icon-font icon-close"></view>
+    </view>
+  </view>
+</template>
+
+<template name="toastSuccess">
+  <view class="dialog-toast">
+    <view class="icon-font icon-order-success"></view>
+    <view class="title">{{title}}</view>
+    <view class="txt">
+      <view wx:for="{{content}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+  </view>
+</template>
+
+<template name="toastFaild">
+  <view class="dialog-toast">
+    <view class="icon-font icon-toast-error"></view>
+    <view class="title">{{title}}</view>
+    <view class="txt">
+      <view wx:for="{{content}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+  </view>
+</template>

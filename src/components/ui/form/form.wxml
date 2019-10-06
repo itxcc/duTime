@@ -1,0 +1,3 @@
+<view class="ben-form">
+  <slot></slot>
+</view>

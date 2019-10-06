@@ -1,0 +1,57 @@
+@import "./variables.scss";
+@import "./iconfont.scss";
+/******************************************************
+* 色调
+*******************************************************/
+$textColor: $black;
+$disableColor: #BDBDBD;
+$borderColor: transparent;
+
+/******************************************************
+* 样式
+*******************************************************/
+.ben-calculate-num{
+  display: inline-block;
+  border: 1px solid $borderColor;
+  height: 21px;
+  overflow: hidden;
+  .ben-calculate-minus{
+    float: left;
+    width: 16px;
+    height: 16px;
+    line-height: 21px;
+    text-align: center;
+    color: $textColor;
+    font-size: 16px;
+    margin-right: 21px;
+    &.disabled{
+      color: $disableColor;
+    }
+  }
+  .ben-calculate-plus{
+    float: left;
+    width: 16px;
+    height: 16px;
+    line-height: 21px;
+    text-align: center;
+    color: $textColor;
+    font-size: 16px;
+    margin-left: 21px;
+    &.disabled{
+      color: $disableColor;
+    }
+
+  }
+  .ben-calculate-input{
+    float: left;
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    color: $textColor;
+    font-size: 18px;
+    font-weight: bold;
+    border-left: 1px solid $borderColor;
+    border-right: 1px solid $borderColor;
+  }
+}
