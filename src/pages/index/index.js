@@ -1,124 +1,130 @@
 var app = getApp()
 Page({
   data: {
-    routeList:[
-      {name:'沟通协调',num:'10',pram:'',url:'../../static/image/gray/post-direction1.png'},
-      {name:'产品运营',num:'10',pram:'',url:'../../static/image/gray/post-direction2.png'},
-      {name:'策划创意',num:'10',pram:'',url:'../../static/image/gray/post-direction3.png'},
-      {name:'设计原画',num:'10',pram:'',url:'../../static/image/gray/post-direction4.png'},
-      {name:'行政人事',num:'10',pram:'',url:'../../static/image/gray/post-direction5.png'},
-    ]
+    isChose:false,
+    classifyName:'毒鸡汤',
+    classifyId:2,
+    index:1,
+    articleId:6980
   },
-  onLoad: function () {
-    this.getIndexInfo()
+  // onLoad: function (options) {
+  //   let _this =this
+  //   app.promise.logined
+  //     .then(res => {
+  //       console.log(options.articleId)
+  //       console.log(options.classifyId)
+  //       if(options.articleId!=undefined&&options.classifyId!=undefined){
+  //         this.setData({
+  //           articleId:options.articleId,
+  //           classifyId:options.classifyId
+  //         })
+  //       // if(options.articleId!=''&&options.classifyId!=''){
+  //         _this.getCurrentArticle()
+  //       }else{
+  //         _this.getArticle()
+  //       }
+  //       _this.getClassify()
+  //     })
+      
+  // },
+  onLoad: function (options) {
+    let _this =this
+    app.promise.logined
+      .then(res => {
+          _this.getArticle()
+          _this.getClassify()
+      })
+      
   },
   onShow: function(){
-    this.getIndexInfo()
-  },
-  
-  getIndexInfo:function(){
-    app.promise.logined.then(res=>{
-      let postData={
-        "Cmd":"Login",
-        "WeiXinId":app.globalData.openId
-      };
-      app.Request(app.apiUrl.qiyeProxy, postData).then(res => {
-        wx.hideLoading();
-        if(res.code=='1000'){
-          if(res.data == res.data!=''){
-            // let str = "经理编号,,,是否通过审核,,,马上可招人数/正在求职人数,,,我关注的马上可招人数,,,公司的粉丝数,,,新增的粉丝数,,,未读的面试邀请数,,,接收的面试邀请数,,,未读简历数,,,沟通协调数,,,产品运营数,,,策划创意数,,,设计原画数,,,行政人事数",
-            let str = res.data.split(',,,')
-            let indexInfo = {},routeList = this.data.routeList
-                indexInfo.managerId = str[0] // 经理编号
-                indexInfo.isAudit = str[1] // 是否通过审核
-                app.globalData.isAudit = str[1]
-                indexInfo.kezhaoOrQiuzhi = str[2] // 马上可招人数/正在求职人数
-                indexInfo.focusNums = str[3] // 我关注的马上可招人数
-                indexInfo.CompanyFans = str[4] // 公司的粉丝数
-                indexInfo.CompanyNewFans = str[5] // 新增的粉丝数
-                indexInfo.unreadInviteNums = str[6] // 未读的面试邀请数
-                indexInfo.receiveInviteNums = str[7] // 接收的面试邀请数
-                indexInfo.unreadResumeNums = str[8] // 未读简历数
-                routeList[0].num = str[9] // 沟通协调数
-                routeList[1].num = str[10] // 产品运营数
-                routeList[2].num = str[11] // 策划创意数
-                routeList[3].num = str[12] // 设计原画数
-                routeList[4].num = str[13] // 行政人事数
-                console.log(routeList)
-            this.setData({
-              indexInfo:indexInfo,
-              routeList:routeList
-            })
-            console.log(str)
-          }else{
-            wx.showToast({
-              title: '系统繁忙，请稍后再试~',
-              icon: 'none',
-              duration: 2000
-            }) 
-          }
-        }else{
-          wx.showToast({
-            title: '系统繁忙，请稍后再试~',
-            icon: 'none',
-            duration: 2000
-          }) 
-        }
-      });
-    })
-  },
-  postMessage(){
-    let postData={
-      "type":4,
-      "fullName":"耿志超",
-      'post':'运营',
-      'interviewTime':'2019-09-22',
-      'stuId':100210
-    };
-    app.Request(app.apiUrl.message,postData).then(res => {
-      wx.hideLoading()
-      if(res.code=='1000'){
-        if(res.data == res.data!=''){
-          console.log(res.data)
-        }
-      }
-    })
-  },
-  
-  
-  shuffleArr(array){
-    var m = array.length,
-        t, i;
-    while (m) {
-        i = Math.floor(Math.random() * m--);
-        t = array[m];
-        array[m] = array[i];
-        array[i] = t;
-    }
-    return array;
-  },
-  toList(e){
-    let  index=e.currentTarget.dataset.index+1 || 0
-    app.globalData.cateindex = index
-    wx.switchTab({
-      url: "../list/list"
-    });
-  },
-  toMyBox(){
-    wx.navigateTo({
-      url: "../my/box/box"
-    })
-  },
-  toMyInvite(e){
-    let  index=e.currentTarget.dataset.index || 0
-    wx.navigateTo({
-      url: "../my/invite/invite?index="+index
-    })
-  },
-  toMyTanlent(){
-    wx.navigateTo({
-      url: "../my/talent/talent?index=1"
-    })
 
-  }
+  },
+  getClassify(){
+    let _this = this
+    app.Request(app.apiUrl.getClassify,{},{method: 'GET',allRes: true})
+      .then((res) =>{
+        if(res.data.code==200){
+          _this.setData({
+            classify: res.data.data
+          })
+        }
+      })  
+  },
+  getArticle(){
+    let _this =this,
+        postData = {
+          "classifyId":this.data.classifyId,
+          "currentPage":Math.floor(Math.random()*10+1)
+        }
+    app.Request(app.apiUrl.getArticle,postData,{method: 'GET',allRes: true})
+    .then((res) =>{
+      if(res.data.code = 200){
+        _this.setData({
+          contentList:_this.shuffle(res.data.data)
+        })
+        console.log(this.data.contentList)
+      }
+    })  
+  },
+  getCurrentArticle(){
+    let _this =this,
+    postData = {
+      "id":this.data.articleId
+    }
+    app.Request(app.apiUrl.getCurrentArticle,postData,{method: 'GET',allRes: true})
+    .then((res) =>{
+      if(res.data.code = 200){
+        _this.setData({
+          content:res.data.data.content
+        })
+        console.log(this.data.contentList)
+      }
+    })  
+  },
+  next(){
+    let contentList = this.data.contentList
+        // index=this.data.index,
+        // articleId = contentList[index].id
+    contentList.push(contentList[0])
+    contentList.splice(0,1)
+    this.setData({
+      contentList,
+      // index:index+1,
+      // articleId
+    })
+  },
+  shuffle(arr) {
+    var length = arr.length,
+      randomIndex,
+      temp;
+    while (length) {
+      randomIndex = Math.floor(Math.random() * (length--));
+      temp = arr[randomIndex];
+      arr[randomIndex] = arr[length];
+      arr[length] = temp
+    }
+    return arr;
+  },
+  choseClassify(e){
+    let id=e.currentTarget.dataset.id,
+        name =e.currentTarget.dataset.name
+    this.setData({
+      classifyName:name,
+      classifyId:id,
+      isChose:!this.data.isChose
+    })
+    this.getArticle()
+  },
+  onShareAppMessage(){
+    return {
+      title: '世界这么假，至少在骗人的时候是真的',
+      // path: '/pages/index/index?articleId='+this.data.articleId+'&classifyId='+this.data.classifyId, // 转发路径(当前页面 path )，必须是以 / 开头的完整路径
+      imageUrl: '' // 图片 URL
+    }
+  },
+  showChose(){
+    this.setData({
+      isChose:!this.data.isChose
+    })
+  },
 })

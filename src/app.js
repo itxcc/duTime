@@ -27,40 +27,20 @@ App({
       wx.login({
         success: res => {
           // 发送 res.code 到后台换取 openId, sessionKey
-          that.Request(apiUrl.qiyeLogin,
+          that.Request(apiUrl.getUserToken,
             {code:res.code},
-            {method: 'POST',allRes: true}
+            {method: 'GET',allRes: true}
           )
           .then(success, fail)
-          .then(loginSuccess,fail)
           function success(res) {
-            if (res.data.code == "1000") {
+            if (res.data.code == 200) {
+              console.log(res.data.data)
               that.globalData.openId=res.data.data.openid?res.data.data.openid:''
               wx.setStorageSync('openId', res.data.data.openid?res.data.data.openid:'')  
-              // resolve(res.data)
+              resolve(res.data.data)
             } else {
               fail(res)
             }
-          }
-          function loginSuccess(){
-            let openId = wx.getStorageSync('openId');
-            let postData={"Cmd":"Login", "WeiXinId":openId}
-            that.Request(apiUrl.qiyeProxy,postData,{method: 'POST',allRes: true})
-            .then( (res) => {
-              wx.hideLoading();
-              if(res.data.code == "1000") {
-                let str = res.data.data.split(',,,');
-                // that.globalData.managerId=10014
-                that.globalData.managerId=str[0]?str[0]:''
-                that.globalData.isAudit=str[1]?str[1]:0 //0、未注册  1、审核中  2、审核不通过  3、审核通过
-                resolve(res.data.data)
-                // console.log(str)
-              }else{
-                fail(res)
-              }
-            })
-              
-                
           }
           function fail(res) {
             reject(res);
@@ -117,29 +97,29 @@ App({
       let success = function (res) {
         console.log(res)
        //当调用授权接口的时候，获取响应头中的 授权token。赋值给全局对象上
-       if (res.data.code != "1000" && res.data.code != "1001" && res.data.code != "4002" ) {
-        that.globalData.reqCount+=1
-         if(that.globalData.reqCount<=reqMax) {
-          that.promise.logined = that.login();
-          setTimeout(_=>{
-            that.promise.logined.then(res=>{
-              that.Request(url, data, option, transHeader).then(_res=>{
-                resolve(_res); that.globalData.reqCount = 0;})
-            })
-          },1000)
+       
+       if (res.statusCode == 200 && res.errMsg == "request:ok") {
+        console.log('response-------->', res)
+        resolve(opt.allRes ? res : res.data);
+        }else if (res.data.code != "200" || res.data.code != 200 ) {
+          that.globalData.reqCount+=1
+          if(that.globalData.reqCount<=reqMax) {
+            that.promise.logined = that.login();
+            setTimeout(_=>{
+              that.promise.logined.then(res=>{
+                that.Request(url, data, option, transHeader).then(_res=>{
+                  resolve(_res); that.globalData.reqCount = 0;})
+              })
+            },1000)
 
-        } else {         
-          wx.showToast({
-            title: '登陆失败，请重新打开小程序再试',
-            icon: 'none',
-            duration: 2000
-          }) 
-        }
-       } 
-       else if (res.statusCode == 200 && res.errMsg == "request:ok" && res.data.code!="10004000") {
-         console.log('response-------->', res)
-         resolve(opt.allRes ? res : res.data);
-       } else {
+            } else {      
+              wx.showToast({
+                title: '登陆失败，请重新打开小程序再试',
+                icon: 'none',
+                duration: 2000
+              }) 
+            }
+        }else {
          reject(opt.allRes ? res : res.errMsg);
        }
       };
